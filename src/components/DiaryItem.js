@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import BtnComm from "./BtnComm";
 
@@ -23,7 +23,10 @@ const DiaryItem = ({ id, emotion, content, date }) => {
         ].join(" ")}
         onClick={goDetail}
       >
-        <img src={process.env.PUBLIC_URL + `assets/emotion${emotion}.png`} />
+        <img
+          src={process.env.PUBLIC_URL + `assets/emotion${emotion}.png`}
+          alt=""
+        />
       </div>
       <div className="info_wrapper" onClick={goDetail}>
         <div className="diary_date">{strDate}</div>
@@ -36,4 +39,4 @@ const DiaryItem = ({ id, emotion, content, date }) => {
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
